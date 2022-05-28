@@ -17,11 +17,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this->call(UserSeeder::class);
+        $this->call(PostSeeder::class);
         Storage::deleteDirectory('posts');
         Storage::makeDirectory('posts');
-        $this->call(UserSeeder::class);
         Category::factory(4)->create();
         Tag::factory(8)->create();
-        $this->call(PostSeeder::class);
+        Image::factory(10)->create();
     }
 }
